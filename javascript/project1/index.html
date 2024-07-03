@@ -11,6 +11,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <span class="navbar-brand">Navbar</span>
+          <span class="badge bg-dark">Dark 🔄</span>
           <button class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -83,6 +84,18 @@
         }  
       });
 
+      var cot = 0 ;
+
+      $('.badge').on('click', function() {
+        cot = cot + 1;
+        if (cot % 2 == 1) 
+        $('.badge').html('Light');
+        $('.badge').addClass('bg-light');
+        else {
+          $('.badge').html('Dark');
+          $('.badge').removeClass('bg-light');
+        }
+      });
 
       </script>
 
@@ -91,3 +104,5 @@
       
     </body>
 </html>
+
+
