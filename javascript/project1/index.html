@@ -88,12 +88,11 @@
 
       $('.badge').on('click', function() {
         cot = cot + 1;
-        if (cot % 2 == 1) 
+        if (cot % 2 == 1) {
         $('.badge').html('Light');
-        $('.badge').addClass('bg-light');
+        }
         else {
           $('.badge').html('Dark');
-          $('.badge').removeClass('bg-light');
         }
       });
 
