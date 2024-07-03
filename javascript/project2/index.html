@@ -70,6 +70,11 @@
      <button class="slide-3">3</button>
      <button class="next">다음</button>
 
+     <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+    </div>
+
+    <div style="height: 1000px"></div>
 
       <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -191,16 +196,26 @@
       });
       
 
-
-      function 함수1(a, b){
-        if (b == false) {
-         return parseFloat((a * 0.9).toFixed(2))
+      window.addEventListener('scroll', function(){
+        if (window.scrollY >= 100) {
+          $('.navbar-brand').css('font-size', '20px');
         }
+
         else {
-          return parseFloat((a * 0.9 - 1.5).toFixed(2))
+          $('.navbar-brand').css('font-size', '30px');
         }
-      }
+      })
 
+      document.querySelector('.lorem').addEventListener('scroll', function(){
+
+        var 스크롤양 = document.querySelector('.lorem').scrollTop;
+        var 실제높이 = document.querySelector('.lorem').scrollHeight;
+        var 높이 = document.querySelector('.lorem').clientHeight;
+        if (스크롤양 + 높이 > 실제높이 - 10) {
+          alert('다읽음')
+          
+        }
+      })
         
       </script>
     </body>
