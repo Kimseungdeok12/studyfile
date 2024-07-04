@@ -34,3 +34,7 @@ ul.list::after {
 .show {
   display: block;
 }
+
+.form-select { 
+  display: none;
+}

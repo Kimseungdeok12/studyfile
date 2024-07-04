@@ -35,6 +35,3 @@ function 탭열기(변수){
   $('.tab-content').eq(변수).addClass('show');
 }
 
-$('.list').click(function(e){
-  탭열기(e.target.dataset.id)
-});
