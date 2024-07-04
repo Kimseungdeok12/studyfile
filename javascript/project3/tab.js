@@ -22,18 +22,19 @@
     $('.tab-content').eq(2).addClass('show');
   })*/
 
-    var 버튼 = $('.tab-button');
-  
-    for (let i = 0; i < $('.tab-button').length; i++) {
 
-    버튼.eq(i).on('click', function(){
-        버튼.removeClass('orange');
-        버튼.eq(i).addClass('orange');
-        $('.tab-content').removeClass('show');
-        $('.tab-content').eq(i).addClass('show');
-        console.log
-      })
+var car2 = { name: '소나타', price: [50000, 30000, 40000] };
+  document.querySelector('.car-title').innerHTML = car2.price[0]
 
-  }
-  var j = $('.tab-button').length
-  console.log(j)
+var 버튼 = $('.tab-button');
+
+function 탭열기(변수){
+  버튼.removeClass('orange');
+  버튼.eq(변수).addClass('orange');
+  $('.tab-content').removeClass('show');
+  $('.tab-content').eq(변수).addClass('show');
+}
+
+$('.list').click(function(e){
+  탭열기(e.target.dataset.id)
+});
