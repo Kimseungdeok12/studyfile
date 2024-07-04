@@ -14,7 +14,7 @@ for (i = 0; i < 3; i++) {
 }
 
 var pants = [28, 30, 32, 34]
-var shirt = ['S', 'M', 'L', 'XL', 'XXL']
+var shirt = [100, 105, 110, 115, 120]
 
 $('.form-select').eq(0).on('input', function(){
 
@@ -39,18 +39,22 @@ $('.form-select').eq(0).on('input', function(){
 
 });
 
-products.forEach((a, i)=>{
-      var 템플릿 = 
-      `<div class="col-sm-4">
-        <img src="https://via.placeholder.com/600" class="w-100">
-        <h5>${products[i].title}</h5>
-        <p>가격 : ${products[i].price}</p>
-      </div>`;
-      $('.row').append(템플릿)
-});
 
-$('#more').click(function(){
-  $.get('https://codingapple1.github.io/js/more1.json').done((data)=>{
-  
+$.get('https://codingapple1.github.io/hello.txt')
+  .done(function(data){
+    console.log(data)
   })
-})
+  .fail(function(error){
+    console.log('실패함')
+  });
+
+  products.forEach((a, i)=>{
+    var 템플릿 = 
+    `<div class="col-sm-4">
+      <img src="https://via.placeholder.com/600" class="w-100">
+      <h5>${products[i].title}</h5>
+      <p>가격 : ${products[i].price}</p>
+    </div>`;
+    $('.row').append(템플릿)
+  });
+
