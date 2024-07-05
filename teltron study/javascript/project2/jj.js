@@ -137,3 +137,19 @@ document.querySelector('.black-bg').addEventListener('click',function(e){
 if (e.target ==  document.querySelector('.black-bg')){
 document.querySelector('.black-bg').classList.remove('show-modal')}
 })
+
+
+let 시작좌표 = 0;
+let 눌렀냐 = false;
+
+$('.slide-box').eq(0).on('mousedown', function(e){
+  시작좌표 = e.clientX;
+  눌렀냐 = true;
+});
+
+$('.slide-box').eq(0).on('mousemove', function(e){
+  if (눌렀냐 === true) {
+    $('.slide-container').css('transform', `translateX( ${e.clientX - 시작좌표}px )`)
+  }
+});
+
