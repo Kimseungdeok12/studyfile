@@ -49,8 +49,38 @@ products.forEach((a, i)=>{
       $('.row').append(템플릿)
 });
 
+var clicker = 0
+
 $('#more').click(function(){
-  $.get('https://codingapple1.github.io/js/more1.json').done((data)=>{
   
-  })
+  clicker += 1  
+
+  function 더보기누르기 (ㄷㄷ) {
+    $.get(ㄷㄷ).done((data)=>{
+      data.forEach((a, i)=>{
+        var 템플릿 = 
+        `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100">
+          <h5>${data[i].title}</h5>
+          <p>가격 : ${data[i].price}</p>
+        </div>`;
+        $('.row').append(템플릿)
+      });
+    })
+  }
+
+  if(clicker == 1) {
+    더보기누르기 ('https://codingapple1.github.io/js/more1.json');
+  }
+
+  if(clicker == 2) {
+    더보기누르기 ('https://codingapple1.github.io/js/more2.json');
+
+    document.querySelector('#more').remove();
+  }
 })
+
+var 어레이 = [7, 3, 5, 2, 40]
+어레이.sort(function(a, b) {
+  return a - b});
+console.log(어레이);
