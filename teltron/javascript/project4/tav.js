@@ -45,6 +45,7 @@ products.forEach((a, i)=>{
         <img src="https://via.placeholder.com/600" class="w-100">
         <h5>${products[i].title}</h5>
         <p>가격 : ${products[i].price}</p>
+        <button class = 'buy'>구매</button>
       </div>`;
       $('.row').append(템플릿)
 });
@@ -63,6 +64,7 @@ $('#more').click(function(){
           <img src="https://via.placeholder.com/600" class="w-100">
           <h5>${data[i].title}</h5>
           <p>가격 : ${data[i].price}</p>
+          <button>구매</button>
         </div>`;
         $('.row').append(템플릿)
       });
@@ -81,6 +83,93 @@ $('#more').click(function(){
 })
 
 var 어레이 = [7, 3, 5, 2, 40]
-어레이.sort(function(a, b) {
-  return a - b});
-console.log(어레이);
+var 어레이2 = ['b', 'a', 'e', 'd', 'c'];
+어레이2.sort(function(a, b) {
+  return a > b ? 1 : -1;
+});
+console.log(어레이2);
+
+var 새어레이 = 어레이.filter(function(a) {
+  return a < 8
+});
+console.log(새어레이);
+
+$('#price').click(function(){
+
+  products.sort(function(a, b){
+    return a.price - b.price
+  });
+
+  $('.row').html('');
+
+  products.forEach((a, i)=>{
+    var 템플릿 = 
+    `<div class="col-sm-4">
+      <img src="https://via.placeholder.com/600" class="w-100">
+      <h5>${products[i].title}</h5>
+      <p>가격 : ${products[i].price}</p>
+      <button>구매</button>
+    </div>`;
+    $('.row').append(템플릿)
+  })
+}); 
+
+$('#namesort').click(function(){
+
+  products.sort(function(a, b) {
+    if (a.title < b.title) return 1;
+    if (a.title > b.title) return -1;
+  });
+
+  $('.row').html('');
+
+  products.forEach((a, i)=>{
+    var 템플릿 = 
+    `<div class="col-sm-4">
+      <img src="https://via.placeholder.com/600" class="w-100">
+      <h5>${products[i].title}</h5>
+      <p>가격 : ${products[i].price}</p>
+      <button>구매</button>
+    </div>`;
+    $('.row').append(템플릿)
+  })
+}); 
+
+$('#60000이하').click(function(){
+
+  var 만원이하 = products.filter(function(a){
+    return a.price > 59999
+  });
+
+  $('.row').html('');
+
+  만원이하.forEach((a, i)=>{
+    var 템플릿 = 
+    `<div class="col-sm-4">
+      <img src="https://via.placeholder.com/600" class="w-100">
+      <h5>${만원이하[i].title}</h5>
+      <p>가격 : ${만원이하[i].price}</p>
+      <button>구매</button>
+    </div>`;
+    $('.row').append(템플릿)
+  })
+}); 
+
+var arr = [1, 2, 4];
+var newarr = JSON.stringify(arr)
+localStorage.setItem('num', newarr)
+
+$('.buy').click(function(e) {
+  var title = $(e.target).siblings('h5').text();
+
+  if(localStorage.getItem('cart') != null) {
+    var 꺼낸거 = JSON.parse(localStorage.cart);
+    꺼낸거.push(title);
+    localStorage.setItem('cart',JSON.stringify(꺼낸거));
+  }
+  else {
+  localStorage.setItem('cart',JSON.stringify([title]))
+  }
+});
+
+
